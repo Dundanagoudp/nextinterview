@@ -138,8 +138,6 @@ export const Label = styled.label`
   }
 `;
 
-
-
 export const Button = styled.button`
   width: 100%;
   padding: 10px;
