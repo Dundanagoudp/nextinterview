@@ -15,9 +15,9 @@ import {
 } from '../styles/SignUp.styles';
 import logo from '../assets/logo.png';
 import signup from '../assets/signup.png';
-import google from '../assets/google.png'; // Add your google PNG logo here
+import google from '../assets/google.png';
 import { Link } from 'react-router';
-import { FaEye, FaLinkedin, FaMobileAlt } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaLinkedin, FaMobileAlt } from 'react-icons/fa';
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,7 +29,18 @@ const SignUp = () => {
   };
 
   const handleFormSubmit = (e) => {
-    e.preventDefault(); // Prevents page refresh
+    e.preventDefault();
+
+    if (!email || !password) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
     console.log('Email:', email);
     console.log('Password:', password);
   };
@@ -50,7 +61,7 @@ const SignUp = () => {
               type="email"
               placeholder="Enter your email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)} // Update email state
+              onChange={(e) => setEmail(e.target.value)}
             />
           </Input>
           <Input>
@@ -60,20 +71,24 @@ const SignUp = () => {
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Enter your password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)} // Update password state
+                onChange={(e) => setPassword(e.target.value)}
               />
-              <span
+              <button
+                type="button"
                 onClick={togglePasswordVisibility}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
                 style={{
                   position: 'absolute',
                   right: '10px',
                   top: '50%',
                   transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
                   cursor: 'pointer',
                 }}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </span>
+              </button>
             </div>
           </Input>
           <div
@@ -84,8 +99,8 @@ const SignUp = () => {
               marginBottom: '1rem',
             }}
           >
-            <label style={{ fontSize: '0.9rem' }}>
-              <input type="checkbox" /> Remember Me
+            <label htmlFor="rememberMe" style={{ fontSize: '0.9rem' }}>
+              <input id="rememberMe" type="checkbox" /> Remember Me
             </label>
             <a href="/forgot-password" style={{ color: '#007bff', fontSize: '0.9rem' }}>
               Forgot Password
@@ -93,7 +108,7 @@ const SignUp = () => {
           </div>
           <Button type="submit">Log In</Button>
           <AlternativeLogin>
-            <Link to='/login'>
+            <Link to="/login">
               <button>
                 <FaMobileAlt /> Log in with Mobile
               </button>
