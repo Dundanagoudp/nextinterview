@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+// GlobalStyle.js
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -8,17 +9,30 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: Arial, sans-serif;
-    background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text};
+    font-family: ${(props) => props.theme.fonts.body};
+    color: ${(props) => props.theme.colors.dark};
+    background-color: ${(props) => props.theme.colors.light};
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${(props) => props.theme.fonts.heading};
   }
 
   a {
     text-decoration: none;
-    color: inherit;
+    color: ${(props) => props.theme.colors.primary};
   }
 
-  button {
-    cursor: pointer;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    body {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    body {
+      font-size: 18px;
+    }
   }
 `;
+
