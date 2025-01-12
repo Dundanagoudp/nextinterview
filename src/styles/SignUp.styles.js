@@ -45,7 +45,7 @@ export const FormSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3.5rem;
+  margin-top: 5rem;
   
   @media (min-width: 768px) {
     margin-top: 20;
@@ -78,9 +78,10 @@ export const Signupage = styled.div`
 export const Heading = styled.h2`
   margin-bottom: 1rem;
   color: #333;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 600;
-  text-align: center;
+  // text-align: ;
+  padding-right: 7rem;
 
   @media (max-width: 768px) {
     font-size: 1.4rem;
@@ -97,8 +98,8 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.div`
-  margin-bottom: 1.8rem;
-  margin-top: 0.5rem;
+  margin-bottom: 1.4rem;
+  margin-top: 0.4rem;
 
   label {
     display: block;
