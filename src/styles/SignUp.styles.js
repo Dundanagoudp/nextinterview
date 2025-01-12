@@ -23,7 +23,7 @@ export const Header = styled.header`
 
 export const Logo = styled.div`
   img {
-    height: 55px;
+    height: 50px;
   }
 
   @media (max-width: 768px) {

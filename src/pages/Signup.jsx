@@ -17,6 +17,7 @@ import {
 import { FaGoogle, FaLinkedin, FaMobileAlt, FaEye, FaEyeSlash } from 'react-icons/fa';
 import logo from '../assets/logo.png';
 import signup from '../assets/signup.png';
+import { Link } from 'react-router';
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -92,9 +93,11 @@ const SignUp = () => {
           </div>
           <Button type="submit">Log In</Button>
           <AlternativeLogin>
+            <Link to='/login'>
             <button>
               <FaMobileAlt /> Log in with Mobile
             </button>
+            </Link>
             <button>
               <FaGoogle /> Log in with Google
             </button>
