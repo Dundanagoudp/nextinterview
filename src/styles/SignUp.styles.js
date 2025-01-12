@@ -174,9 +174,7 @@ export const AlternativeLogin = styled.div`
       color: rgb(25, 25, 25);
     }
 
-    &:nth-child(2) svg {
-      color: #db4437;
-    }
+   
   }
 
   @media (max-width: 768px) {
@@ -186,6 +184,9 @@ export const AlternativeLogin = styled.div`
     margin-top: 1rem;
   }
 `;
+// export const GoogleButton = styled.div`
+// height: '20px', marginRight: '10px';
+// `;
 
 export const LinkedInButton = styled.div`
   margin-top: 2.8rem;

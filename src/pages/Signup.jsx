@@ -1,4 +1,3 @@
-// React Component
 import React, { useState } from 'react';
 import {
   Container,
@@ -14,10 +13,11 @@ import {
   Footer,
   Signupage,
 } from '../styles/SignUp.styles';
-import { FaGoogle, FaLinkedin, FaMobileAlt, FaEye, FaEyeSlash } from 'react-icons/fa';
 import logo from '../assets/logo.png';
 import signup from '../assets/signup.png';
+import google from '../assets/google.png'; // Add your google PNG logo here
 import { Link } from 'react-router';
+import { FaEye, FaLinkedin, FaMobileAlt } from 'react-icons/fa';
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -94,20 +94,20 @@ const SignUp = () => {
           <Button type="submit">Log In</Button>
           <AlternativeLogin>
             <Link to='/login'>
-            <button>
-              <FaMobileAlt /> Log in with Mobile
-            </button>
+              <button>
+                <FaMobileAlt /> Log in with Mobile
+              </button>
             </Link>
             <button>
-              <FaGoogle /> Log in with Google
+              <img src={google} alt="Google Logo" style={{ height: '20px', marginRight: '10px' }} />
+              Log in with Google
             </button>
           </AlternativeLogin>
           <LinkedInButton>
-          <button>      
-          <FaLinkedin /> Log in with LinkedIn
-          </button>
+            <button>
+              <FaLinkedin /> Log in with LinkedIn
+            </button>
           </LinkedInButton>
-
         </Form>
         <Footer>
           By signing in, I agree to Next Interview's{' '}
