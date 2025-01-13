@@ -9,12 +9,12 @@ import {
   NextButton,
   CirclePointer,
   BackIcon,
-} from "../styles/QuestionPage2.styles";
+} from "../styles/QuestionPage4.styles";
 import logo from "../assets/logo.png";
 import { useNavigate } from "react-router";
 import { FaArrowLeft } from "react-icons/fa";
 
-const QuestionPage2 = () => {
+const QuestionPage4 = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const QuestionPage2 = () => {
   };
 
   const handleGoBack = () => {
-    navigate("/question1");
+    navigate("/question3");
   };
 
   return (
@@ -38,7 +38,7 @@ const QuestionPage2 = () => {
         <FaArrowLeft />
       </BackIcon>
 
-      <Title>Are you currently in a data/ai job?</Title>
+      <Title>Do you have interview scheduled <br/> currently?</Title>
 
       <Option
         $isSelected={selectedOption === "interviews"}
@@ -56,23 +56,14 @@ const QuestionPage2 = () => {
       >
         <CirclePointer $isSelected={selectedOption === "switch"} />
         <OptionLabel $isSelected={selectedOption === "switch"}>
-          No, planning to Switch to data/ai role
+          No
         </OptionLabel>
       </Option>
 
-      <Option
-        $isSelected={selectedOption === "firstJob"}
-        onClick={() => handleOptionChange("firstJob")}
-      >
-        <CirclePointer $isSelected={selectedOption === "firstJob"} />
-        <OptionLabel $isSelected={selectedOption === "firstJob"}>
-          No, looking for my 1st job
-        </OptionLabel>
-      </Option>
 
       <NextButton disabled={!selectedOption}>Next</NextButton>
     </Container>
   );
 };
 
-export default QuestionPage2;
+export default QuestionPage4;

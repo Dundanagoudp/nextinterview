@@ -7,6 +7,7 @@ import PersonalInfo from "./pages/PersonalInfo";
 import QuestionPage1 from "./pages/QuestionPage1";
 import QuestionPage2 from "./pages/QuestionPage2";
 import QuestionPage3 from "./pages/QuestionPage3";
+import QuestionPage4 from "./pages/QuestionPage4";
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
      <Route path="/question1" element={<QuestionPage1 />} />
      <Route path="/question2" element={<QuestionPage2 />} />
      <Route path="/question3" element={<QuestionPage3 />} />
+     <Route path="/question4" element={<QuestionPage4 />} />
      </Routes>
    </div>
   )
