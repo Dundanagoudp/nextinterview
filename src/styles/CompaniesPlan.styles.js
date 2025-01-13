@@ -5,7 +5,7 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255) !important;
   position: relative;
   height: 100vh; /* Full height to center the form */
 `;
@@ -23,7 +23,7 @@ export const Header = styled.header`
 export const Logo = styled.div`
   img {
     height: 50px;
-    margin-left:-550px;
+    margin-left: -550px;
   }
 
   @media (max-width: 768px) {
@@ -33,11 +33,28 @@ export const Logo = styled.div`
   }
 `;
 
+export const BackIcon = styled.div`
+  position: absolute;
+  top: 45px; /* Adjusted to position it at the top of the form */
+  left: 80px;
+  cursor: pointer;
+  font-size: 25px;
+  
+  color: #000;
+
+  @media (max-width: 768px) {
+    top: 10px;
+    left: 10px;
+    font-size: 28px;
+  }
+`;
+
 export const Title = styled.h2`
-  text-align: center;
+  text-align:   center;
   margin: 20px 0;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #333;
+  margin-top: 2rem;
 `;
 
 export const FormSection = styled.section`
@@ -52,20 +69,11 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
-  max-width: 500px;
+  width: 90%;
+  max-width: 450px;
 `;
 
-export const FormField = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
-export const Label = styled.label`
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
-`;
 
 export const Input = styled.input`
   padding: 10px;
@@ -79,30 +87,54 @@ export const Select = styled.select`
   border-radius: 5px;
 `;
 
+export const FormField = styled.div`
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+`;
+
+export const Label = styled.label`
+  margin-bottom: 4px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #555;
+`;
+
 export const CompanyIcons = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 10px 0;
+  margin: 10px 0; /* Increased margin for better spacing */
 `;
 
 export const Icon = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   border: 2px solid transparent;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 9px; /* Increased padding for a cleaner look */
+  border-radius: 18px; /* Rounded corners for a modern feel */
   transition: all 0.3s ease;
 
   ${(props) =>
     props.selected &&
     css`
-      border-color: #008cba;
-      background-color:rgb(255, 255, 255);
+      border-color: #68c184; /* Highlight color for the selected icon */
+      background-color:rgb(226, 238, 230); /* Slight background for selection */
     `}
 
   img {
-    width: 50px;
-    height: auto;
+    width: 75px;
+    height: 14px; /* Ensures uniform icon size */
+    margin-bottom: 1px; /* Space between the icon and label */
+    object-fit: contain;
+  }
+
+  span {
+    font-size: 14px; /* Adjusted font size for the label */
+    color: #000; /* Black color for the label */
   }
 `;
 
@@ -112,6 +144,7 @@ export const Button = styled.button`
   color: ${(props) => (props.secondary ? '#333' : '#fff')};
   border: none;
   border-radius: 5px;
+  border: 1px solid #ccc;
   cursor: pointer;
   font-size: 1rem;
 

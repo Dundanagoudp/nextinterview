@@ -14,14 +14,23 @@ import {
   Icon,
   Button,
   AddAnother,
+  BackIcon,
 } from '../styles/CompaniesPlan.styles';
 import logo from '../assets/logo.png';
+import { useNavigate } from 'react-router';
+import { FaArrowLeft } from 'react-icons/fa';
+import flip from '../assets/flip.png';
 
 const CompaniesPlan = () => {
   const [selectedCompany, setSelectedCompany] = useState('');
+  const navigate = useNavigate();
 
   const handleCompanySelect = (company) => {
     setSelectedCompany(company);
+  };
+
+  const handleGoBack = () => {
+    navigate("/question4");
   };
 
   return (
@@ -33,9 +42,14 @@ const CompaniesPlan = () => {
         </Logo>
       </Header>
 
+      {/* Back Icon positioned at the top of the form */}
+      <BackIcon onClick={handleGoBack}>
+        <FaArrowLeft />
+      </BackIcon>
+
       {/* Form Section */}
       <FormSection>
-        <Title>Tell us about your interview schedule</Title>
+        <Title>Tell us about your interview  schedule</Title>
         <Form>
           <FormField>
             <Label>Company Name</Label>
@@ -47,17 +61,21 @@ const CompaniesPlan = () => {
             </Select>
           </FormField>
 
-          <CompanyIcons>
-            <Icon selected={selectedCompany === 'Amazon'} onClick={() => handleCompanySelect('Amazon')}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" />
-            </Icon>
-            <Icon selected={selectedCompany === 'Flipkart'} onClick={() => handleCompanySelect('Flipkart')}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Flipkart_logo.svg" alt="Flipkart" />
-            </Icon>
-            <Icon selected={selectedCompany === 'Google'} onClick={() => handleCompanySelect('Google')}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />
-            </Icon>
-          </CompanyIcons>
+          <FormField>
+  <Label>Select from here</Label>
+  <CompanyIcons>
+    <Icon selected={selectedCompany === 'Amazon'} onClick={() => handleCompanySelect('Amazon')}>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" />
+    </Icon>
+    <Icon selected={selectedCompany === 'Flipkart'} onClick={() => handleCompanySelect('Flipkart')}>
+      <img src={flip} alt="Flipkart" />
+    </Icon>
+    <Icon selected={selectedCompany === 'Google'} onClick={() => handleCompanySelect('Google')}>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />
+    </Icon>
+  </CompanyIcons>
+</FormField>
+
 
           <FormField>
             <Label>Date of interview (Optional)</Label>
@@ -76,7 +94,7 @@ const CompaniesPlan = () => {
           <FormField>
             <Label>Round type</Label>
             <Select>
-              <option value="">Select Role</option>
+              <option value="">Select Round</option>
               <option value="Technical">Technical</option>
               <option value="HR">HR</option>
             </Select>
