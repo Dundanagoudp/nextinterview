@@ -86,7 +86,9 @@ export const Heading = styled.h2`
   @media (max-width: 768px) {
     font-size: 1.4rem;
     margin-bottom: 1.5rem;
-    text-align: start !important;
+    // text-align:;
+      padding-right: 3rem;
+
   }
 `;
 

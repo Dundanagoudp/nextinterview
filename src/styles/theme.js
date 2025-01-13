@@ -12,12 +12,12 @@ export const theme = {
   fonts: {
     body: "'Inter', sans-serif",
     heading: "'Inter', sans-serif",
-    monospace: "'Courier New', monospace", // Retaining monospace as it's typically not replaced
+    monospace: "'Courier New', monospace", 
   },
   breakpoints: {
     mobile: "480px",
     tablet: "768px",
     desktop: "1024px",
   },
-  spacing: (factor) => `${factor * 8}px`, // 8px grid system
+  spacing: (factor) => `${factor * 8}px`,
 };
