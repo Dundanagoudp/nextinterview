@@ -60,7 +60,6 @@ const QuestionPage4 = () => {
         </OptionLabel>
       </Option>
 
-
       <NextButton disabled={!selectedOption}>Next</NextButton>
     </Container>
   );
